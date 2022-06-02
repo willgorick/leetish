@@ -11,3 +11,7 @@ def main():
   print(climbStairs(8))
 
 main()
+
+#complexity:
+#time: O(n)
+#space: O(1)
