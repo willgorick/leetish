@@ -10,7 +10,7 @@ def house_robber(houses: List[int]) -> int:
 
   for house in houses:
     rob1, rob2 = rob2, max(house + rob1, rob2)
-  
+
   return rob2 #this will be the max value for all houses once the loop finishes
 
 def main():

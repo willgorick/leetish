@@ -21,5 +21,6 @@ def longestConsecutive(nums: List[int]) -> int:
 
 def main():
   print(longestConsecutive([100,4,200,1,3,2]))
+  print(longestConsecutive([8,7,5,4,1,2,10,9,3]))
 
 main()
