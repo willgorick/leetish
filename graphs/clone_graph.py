@@ -31,8 +31,15 @@ def cloneGraph(node: 'Node') -> 'Node':
 def main():
   head = Node(1)
   head.neighbors = [Node(2), Node(3), Node(4, [Node(5), Node(6)])]
-  print(cloneGraph(head))
-
+  new_graph = cloneGraph(head)
+  print_queue = deque()
+  print_queue.append(new_graph)
+  while print_queue:
+    node = print_queue.popleft()
+    print(node.val)
+    for neighbor in node.neighbors:
+      print_queue.append(neighbor)
+    
 main()
         
             

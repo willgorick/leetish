@@ -1,7 +1,7 @@
 # Given a maze with cells being: gates, walls or empty spaces.
 
 # Fill the empty spaces with the number of steps to the closest gate. Allowed steps: UP, RIGHT, LEFT & DOWN
-
+# -1 corresponds to walls, 0 correponds to gates
 import math
 from collections import deque
 
@@ -13,17 +13,17 @@ def walls_and_gates(grid):
   for i in range(row_len):
     for j in range(col_len):
       if grid[i][j] == 0:
-        q.append([i, j, 1])
+        q.append([i, j, 0])
       
   while q:
-    i, j, count = q.popleft()
+    i, j, prev_count = q.popleft()
     for x, y in directions:
       row = i+x
       col = j+y
-      if 0 <= row < row_len and 0 <= col < col_len and grid[row][col] != -1:
+      if 0 <= row < row_len and 0 <= col < col_len and grid[row][col] != -1: #on the grid and not a wall
         if grid[row][col] == math.inf: #only update if not updated yet
-          grid[row][col] = count
-          q.append([row, col, count+1])
+          grid[row][col] = prev_count+1
+          q.append([row, col, prev_count+1])
 
   return grid
 

@@ -4,8 +4,8 @@
 
 
 #one thing we know is that if we have n nodes and n edges then our input MUST have a cycle
-# because 
 def redundant_connections(edges):
+  #initialize each node to be its own parent, initialize all ranks to 1
   parent = [i for i in range(len(edges)+1)] #because 1 to n
   rank = [1] * (len(edges)+1)
   

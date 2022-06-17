@@ -14,7 +14,7 @@ def orangesRotting(grid):
         q.append([r, c])
       
   while q and fresh > 0:
-    for _ in range(len(q)): #initial length of queue before we add stuff below
+    for _ in range(len(q)): #initial length of queue before we add stuff below, this ensures that for each time period we only evaluate the paths from the oranges that were rotten when it started
       r, c = q.popleft()
       for dr, dc in directions:
         row, col = dr + r, dc + c
@@ -24,7 +24,7 @@ def orangesRotting(grid):
           fresh -= 1
     time += 1
 
-  return time if fresh == 0 else -1
+  return time if fresh == 0 else -1 #return -1 if unable to rot all oranges
 
 def main():
   print(orangesRotting([[2,2],[1,1],[0,0],[2,0]]))
